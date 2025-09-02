@@ -1,0 +1,86 @@
+@startuml
+class CrazyClimber {
+}
+
+class MenuPrincipal {
+}
+
+class Pantalla {
+    iniciar()
+    pausar()
+    finalizar()
+}
+
+class Ajustes {
+}
+
+class Jugador {
+    +controlador
+    +movimiento
+    +animacion
+    +marcador
+}
+
+class Personaje {
+    -tamanio
+    -forma
+}
+
+class Vida {
+    -cantidad
+}
+
+class Posicion {
+}
+
+class Nivel {
+    -dificultad
+    -obstaculo
+}
+
+class Reglas {
+}
+
+interface Fondo {
+    -color
+    -bloque
+}
+
+interface Sonido {
+}
+
+
+CrazyClimber*-- MenuPrincipal
+CrazyClimber*--Pantalla
+CrazyClimber*--Ajustes
+CrazyClimber*--Jugador
+CrazyClimber*--Nivel
+CrazyClimber*--Reglas
+
+Pantalla*--Sonido
+Pantalla*--Fondo
+
+Jugador <|-- Personaje
+
+Personaje *--Posicion
+Personaje --o CrazyClimber
+
+Jugador*--Vida
+
+class Movimiento {
+}
+class Controlador {
+}
+class Animacion {
+}
+class Marcador {
+}
+
+Jugador o--Controlador
+Jugador --* Animacion
+Jugador *-- Marcador
+Jugador --* Movimiento
+
+
+
+@enduml
